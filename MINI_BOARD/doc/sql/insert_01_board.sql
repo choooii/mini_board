@@ -1,6 +1,7 @@
 -- 게시글 제목 : 제목n
 -- 게시글 내용 : 내용n
 -- 작성일 현재 일자
+-- 1~20까지 insert
 
 INSERT INTO board_info (
 	board_title
