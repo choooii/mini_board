@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic';
+}
+
+.container {
+    background-color: rgb(218, 225, 255);
+    height: 450px;
+    width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(87, 118, 255);
+    margin: 10px;
+    font-weight: 800;
+}
+
+.button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button
+{
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgb(142, 162, 255);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 15px;
+    line-height: 50px;
+    font-weight: 500;
+    margin: 0 5px;
+}
+
+button:hover {
+    background-color: rgb(87, 118, 255);
+}
+
+label {
+    display: block;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: rgb(142, 162, 255);
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+    font-size: 15px;
+}
+
+input {
+    height: 30px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(255, 255, 255);
+    }
+
+#contents {
+    height: 150px;
+}
+
+form {
+    padding: 0 20px;
+}
+
+.bno {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-gap: 10px;
+}
+
+.contents {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.board {
+    display: grid;
+    grid-gap: 10px;
+}
+
+textarea {
+    border: none;
+    resize: none;
+    border-radius: 10px; 
+    padding: 10px;
+    outline: none;
+    font-size: inherit;
+    font-family: inherit;
+}
