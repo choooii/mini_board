@@ -41,8 +41,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="css/board_list.css">
+    <link rel="stylesheet" href="css/board_list2.css">
     <title>게시판</title>
 </head>
 <body>
@@ -78,50 +77,67 @@
         ❀
         </div>
     </div>
-
-    <div class='container'>
-        <div class='board'>
-            <h1>게시판</h1>
-            <table class='table table-striped'>
-                <thead>
-                    <tr>
-                        <th class='radius-left'>게시글 번호</th>
-                        <th>게시글 제목</th>
-                        <th class='radius-right'>작성일자</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?
-                        foreach ( $result_paging as $record ) 
-                        {
-                    ?>
-                        <tr>
-                            <td class='radius-left'><? echo $record["board_no"]?></td>
-                            <td>
-                                <a href='board_update.php?board_no=<?echo $record["board_no"]?>'><? echo $record["board_title"]?></a>
-                            </td>
-                            <td class='radius-right'><? echo $record["board_write_date"]?></td>
-                        </tr>
-                    <?
-                        }
-                    ?>
-                </tbody>
-            </table>
+    
+    <div class='entire'>
+        <div class='profile'>
+            <div>
+                <img id="grogu" src="https://pbs.twimg.com/profile_images/1475656796241301508/OYmbPJv3_400x400.jpg" alt="grogu">
+            </div>
+            <div>
+                <h2>Title</h2>
+            </div>
+            <div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            </div>
+            <div>
+                <img id="house" src="https://cdn3d.iconscout.com/3d/premium/thumb/house-3260441-2725134.png" alt="house">
+            </div>
         </div>
 
-        <div class='button'>
-            <a href='board_list.php?page_num=<? if($page_num > 1 && $page_num <= $max_page_num) {echo ( $page_num - 1 ); } else { echo $page_num; } ?> ' aria-label="Previous">이전
-            </a>
-            <?
-            for ($i=1; $i <= $max_page_num; $i++) 
-            {
-            ?>
-            <a href='board_list.php?page_num=<? echo $i ?>'><? echo $i ?></a>
-            <?
-            }
-            ?>
-            <a href='board_list.php?page_num=<? if($page_num > 0 && $page_num < $max_page_num) {echo ( $page_num + 1 ); } else { echo $page_num; } ?> ' aria-label="Next">이후
-            </a>
+        <div class='container'>
+            <div class='board'>
+                <h1>게시판</h1>
+                <table class='table table-striped'>
+                    <thead>
+                        <tr>
+                            <th class='radius-left'>게시글 번호</th>
+                            <th>게시글 제목</th>
+                            <th class='radius-right'>작성일자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?
+                            foreach ( $result_paging as $record ) 
+                            {
+                        ?>
+                            <tr>
+                                <td class='radius-left'><? echo $record["board_no"]?></td>
+                                <td>
+                                    <a href='board_detail.php?board_no=<?echo $record["board_no"]?>'><? echo $record["board_title"]?></a>
+                                </td>
+                                <td class='radius-right'><? echo $record["board_write_date"]?></td>
+                            </tr>
+                        <?
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class='button'>
+                <a href='board_list.php?page_num=<? if($page_num > 1 && $page_num <= $max_page_num) {echo ( $page_num - 1 ); } else { echo $page_num; } ?> ' aria-label="Previous">이전
+                </a>
+                <?
+                for ($i=1; $i <= $max_page_num; $i++) 
+                {
+                ?>
+                <a href='board_list.php?page_num=<? echo $i ?>'><? echo $i ?></a>
+                <?
+                }
+                ?>
+                <a href='board_list.php?page_num=<? if($page_num > 0 && $page_num < $max_page_num) {echo ( $page_num + 1 ); } else { echo $page_num; } ?> ' aria-label="Next">이후
+                </a>
+            </div>
         </div>
     </div>
 
