@@ -1,0 +1,1 @@
+<a href="board_list.php"><img src="./common/img/title.png" id="title_img"></a>

@@ -1,6 +1,7 @@
 <?php
     define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
     define( "URL_DB", DOC_ROOT."src/common/db_common.php" );
+    define( "URL_HEADER", DOC_ROOT."src/board_header.php" );
     include_once( URL_DB );
 
     // 페이지 수(GET 체크)
@@ -13,17 +14,27 @@
         $page_num = 1;
     }
 
+    
     // 페이지에 표시하는 최대 레코드 수
     $limit_num = 5;
-
+    
     // 게시판 정보 테이블 전체 카운트 획득
     $result_cnt = select_board_info_cnt();
-
+    
     //max page 번호
     $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
-
+    
     // offset
     $offset = $limit_num*($page_num - 1);
+
+    // 한 블럭에 들어가는 버튼 수
+    $limit_block_num = 3;
+
+    // 블럭 페이지 수
+    $block_num = ceil($page_num / $limit_block_num);
+
+    // 제일 끝 블럭 숫자
+    $max_block_num = ceil( $max_page_num / $limit_block_num );
 
     $arr_prepare = 
         array(
@@ -78,6 +89,8 @@
         </div>
     </div>
     
+    <? include_once( URL_HEADER ) ?>
+
     <div class='entire'>
         <div class='profile'>
             <div>
@@ -95,6 +108,7 @@
         </div>
 
         <div class='container'>
+            <button type='button' onclick="location.href='board_insert.php'">게시글 작성</button>
             <div class='board'>
                 <h1>게시판</h1>
                 <table class='table table-striped'>
@@ -128,7 +142,7 @@
                 <a href='board_list.php?page_num=<? if($page_num > 1 && $page_num <= $max_page_num) {echo ( $page_num - 1 ); } else { echo $page_num; } ?> ' aria-label="Previous">이전
                 </a>
                 <?
-                for ($i=1; $i <= $max_page_num; $i++) 
+                for ($i=1; $i <= $max_page_num; $i++)
                 {
                 ?>
                 <a href='board_list.php?page_num=<? echo $i ?>'><? echo $i ?></a>

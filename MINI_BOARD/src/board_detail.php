@@ -6,8 +6,6 @@
     $arr_get = $_GET;
 
     $result_info = select_board_info_no( $arr_get["board_no"] )
-
-
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +24,7 @@
         <p>게시글 내용 : <? echo $result_info["board_contents"] ?></p>
     </div>
 
-    <button type="button" onclick="location.href='board_list.php?page_num=1'">목록</button>
+    <button type="button" onclick="location.href='board_list.php'">목록</button>
     <button type="button" onclick='location.href="board_update.php?board_no=<? echo $result_info["board_no"] ?>"'>수정</button>
     <button type="button" onclick='location.href="board_delete.php?board_no=<? echo $result_info["board_no"] ?>"'>삭제</button>
 </body>
