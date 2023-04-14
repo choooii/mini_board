@@ -1,6 +1,7 @@
 <?php
     define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
     define( "URL_DB", DOC_ROOT."src/common/db_common.php" );
+    define( "URL_HEADER", DOC_ROOT."src/board_header.php" );
     include_once( URL_DB );
 
     $http_method = $_SERVER["REQUEST_METHOD"]; // 통신에 따라 POST, GET 저장
@@ -46,79 +47,48 @@
     <title>게시글 수정</title>
 </head>
 <body>
-<div class="snowflakes" aria-hidden="true">
-    <div class="snowflake">
-    ✿
-    </div>
-    <div class="snowflake">
-    ❀
-    </div>
-    <div class="snowflake">
-    ✿
-    </div>
-    <div class="snowflake">
-    ❀
-    </div>
-    <div class="snowflake">
-    ✿
-    </div>
-    <div class="snowflake">
-    ❀
-    </div>
-    <div class="snowflake">
-    ✿
-    </div>
-    <div class="snowflake">
-    ❀
-    </div>
-    <div class="snowflake">
-    ✿
-    </div>
-    <div class="snowflake">
-    ❀
-    </div>
-</div>
+    <? include_once( URL_HEADER ) ?>
 
-<div class='entire'>
-    <div class='profile'>
-        <div>
-            <img id="grogu" src="https://pbs.twimg.com/profile_images/1475656796241301508/OYmbPJv3_400x400.jpg" alt="grogu">
-        </div>
-        <div>
-            <h2>Title</h2>
-        </div>
-        <div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </div>
-        <div>
-            <img id="house" src="https://cdn3d.iconscout.com/3d/premium/thumb/house-3260441-2725134.png" alt="house">
-        </div>
-    </div>
-
-    <div class="container">
-        <h1>수정</h1>
-        <form method="post" action="board_update.php">
-            <div class="board">
-                <div class="bno">
-                    <label for="bno">게시글 번호</label>
-                    <input type="text" name="board_no" id="bno" value="<? echo $result_info['board_no'] ?>" readonly>
-                </div>
-                <div class="bno">
-                    <label for="title">게시글 제목</label>
-                    <input type="text" name="board_title" id="title" value="<? echo $result_info['board_title'] ?>">
-                </div>
-                <div class="contents">
-                    <label for="contents">게시글 내용</label>
-                    <textarea name="board_contents" id="contents" cols="30" rows="10"><?echo $result_info['board_contents']?></textarea>
-                </div>
-                <div class="button">
-                    <button type="button" onclick="location.href='board_list.php?page_num=1'">목록</button>
-                    <button type="button" onclick="location.href='board_detail.php?board_no=<? echo $result_info['board_no'] ?>'">취소</button>
-                    <button type="submit">수정</button>
-                </div>
+    <div class='entire'>
+        <div class='profile'>
+            <div>
+                <img id="grogu" src="https://pbs.twimg.com/profile_images/1475656796241301508/OYmbPJv3_400x400.jpg" alt="grogu">
             </div>
-        </form>
+            <div>
+                <h2>Title</h2>
+            </div>
+            <div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            </div>
+            <div>
+                <img id="house" src="https://cdn3d.iconscout.com/3d/premium/thumb/house-3260441-2725134.png" alt="house">
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>수정</h1>
+            <form method="post" action="board_update.php">
+                <div class="board">
+                    <div class="bno">
+                        <label for="bno">게시글 번호</label>
+                        <input type="text" name="board_no" id="bno" value="<? echo $result_info['board_no'] ?>" readonly>
+                    </div>
+                    <div class="bno">
+                        <label for="title">게시글 제목</label>
+                        <input type="text" name="board_title" id="title" value="<? echo $result_info['board_title'] ?>">
+                    </div>
+                    <div class="contents">
+                        <label for="contents">게시글 내용</label>
+                        <textarea name="board_contents" id="contents" cols="30" rows="10"><?echo $result_info['board_contents']?></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="button" onclick="location.href='board_list.php?page_num=1'">목록</button>
+                        <button type="button" onclick="location.href='board_detail.php?board_no=<? echo $result_info['board_no'] ?>'">취소</button>
+                        <button type="submit">수정</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 </body>
 </html>

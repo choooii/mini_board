@@ -25,8 +25,7 @@
 
 .entire {
     display: grid;
-    grid-template-columns: 300px minmax(600px, 80fr);
-    grid-template-rows: minmax(650px, 1fr) 50px;
+    grid-template-columns: 300px minmax(700px, 1fr);
     grid-gap: 3em;
     margin: 1em 10em 0;
 }
@@ -54,6 +53,7 @@ h2 {
 }
 
 .container {
+    position: relative;
     background-color: rgb(218, 225, 255);
     border-radius: 10px;
     padding: 20px;
@@ -74,21 +74,7 @@ h1 {
     text-align: center;
     color: rgb(87, 118, 255);
     margin: 20px;
-    padding: 0 0 20px;
     font-weight: 800;
-}
-
-td {
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    padding: 10px 0;
-}
-
-th {
-    text-align: center;
-    background-color:rgb(142, 162, 255);
-    padding: 10px 0;
-    color: rgb(255, 255, 255);
 }
 
 .radius-left {
@@ -101,14 +87,32 @@ th {
     border-bottom-right-radius: 30px;
 }
 
+.k {
+    height: 400px;
+}
+
 .table-striped {
     margin: 20px auto;
     width: 85%;
-    height: 360px;
-    border-spacing: 0 12px;
+    border-spacing: 0 15px;
 }
 
-.button{
+td {
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0;
+    height: 45px;
+}
+
+th {
+    text-align: center;
+    background-color:rgb(142, 162, 255);
+    padding: 10px 0;
+    color: rgb(255, 255, 255);
+    height: 40px;
+}
+
+.button {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -140,5 +144,28 @@ td a {
 
 td a:hover {
     color: rgb(87, 118, 255);
+    font-weight: 600;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(142, 162, 255);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: 500;
+    width: 8em;
+    height: 2em;
+    font-size: 15px;
+    position: absolute;
+    right: 20px;
+}
+
+button:hover {
+    background-color: rgb(87, 118, 255);
+}
+
+.button .target {
+    background-color: rgb(87, 118, 255);
     font-weight: 600;
 }

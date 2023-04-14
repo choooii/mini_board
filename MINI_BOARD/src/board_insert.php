@@ -1,6 +1,7 @@
 <?php
     define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
     define( "URL_DB", DOC_ROOT."src/common/db_common.php" );
+    define( "URL_HEADER", DOC_ROOT."src/board_header.php" );
     include_once( URL_DB );
 
     $http_method = $_SERVER["REQUEST_METHOD"];
@@ -28,6 +29,7 @@
     <title>게시글 작성</title>
 </head>
 <body>
+    <? include_once( URL_HEADER ) ?>
     <div class='entire'>
         <div class='profile'>
             <div>
